@@ -1,0 +1,68 @@
+page-kpi-report-all {
+  .line-chart {
+    width: 500px;
+    border: 1px solid $light_e;
+    .amcharts-chart-div {
+      background: $triple_e !important;
+      a {
+        display: none !important;
+      }
+    }
+  }
+  .resume-table {
+    border: 1px solid $light_e;
+    .card-header {
+      border-bottom: 1px solid $triple_e;
+      background-color: $triple_e;
+    }
+    .grid {
+      .row {
+        padding: 10px 0;
+        &:not(:last-child) {
+          border-bottom: 1px solid $triple_e;
+        }
+      }
+    }
+  }
+  .pie-chart {
+    margin-bottom: 40px;
+    .card {
+      border: 1px solid $light_e;
+    }
+  }
+}
+
+.deltas {
+  i {
+    transform: rotate(29deg);
+  }
+}
+
+@media (min-width: 576px) {
+  page-kpi-report {
+    .line-chart {
+      width: 100% !important;
+    }
+    .resume-table {
+      width: auto !important;
+    }
+  }
+}
+
+.slides,
+.swiper-slide,
+.swiper-container {
+  height: auto !important;
+  width: 100% !important;
+}
+
+.swiper-pagination {
+  display: none !important;
+}
+
+.ck-title{
+  padding-bottom: 0 !important;
+  padding-right: 16px !important;
+  color: #518AFF;
+  margin-top: 12px;
+}

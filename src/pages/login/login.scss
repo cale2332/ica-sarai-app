@@ -1,0 +1,39 @@
+page-login {
+  .content {
+    background-color: #2d7cb1;
+    background-image: url('../assets/imgs/bg-2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    .login {
+      border: 1px solid transparent;
+      padding-top: 16px;
+      
+      .list {
+        border-radius: 13px;
+        background-color: #fff;
+        padding-top: 20px;
+        .item {
+          background-color: #fff;
+        }
+      }
+      .button {
+        padding: 25px 16px;
+        width: 80%;
+      }
+    }
+    &.content-ios {
+      padding-top: 20px;
+    }
+  }
+}
+
+ion-col,
+.col {
+  position: initial;
+}
+
+.item-md.item-input.item-input-has-focus .item-inner,
+.item-md.item-input.input-has-focus .item-inner {
+  box-shadow: none;
+}

@@ -1,0 +1,21 @@
+page-cnvi-report {
+    .content {
+      background-color: #eee;
+      .card,
+      .card-ios {
+        box-shadow: none;
+        .item {
+          background: #fff !important;
+          margin-bottom: 1px;
+          &:last-child {
+            border-top-color: transparent;
+          }
+        }        
+      }
+    }
+  }
+  .reporteId {
+    max-width: 100% !important;
+    width: 100% !important;
+}
+  

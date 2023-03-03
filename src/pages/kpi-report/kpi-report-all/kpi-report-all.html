@@ -1,0 +1,337 @@
+<!--
+  Generated template for the KpiReportAllPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reporte A&I</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+
+<ion-content class="content-st">
+  <h4 padding-left class="search-heading">{{proyecto}}</h4>
+
+  <ion-card>
+    <ion-card-content no-padding>
+      <ion-scroll scrollX="true" style="white-space:nowrap; height:300px">
+        <ion-segment class="line-chart" [ngStyle]="{'width': sot==1 ? '500px' : '100%'}">
+          <div id="chartdiv" [style.width.%]="100" [style.height.px]="300"></div>
+
+        </ion-segment>
+
+      </ion-scroll>
+    </ion-card-content>
+    <ion-grid>
+      <ion-row style="border-top:1px solid #eee">
+        <ion-col col-sm-6 text-center class="text-blue">
+          <div class="deltas">
+            <i class="fa fa-play" aria-hidden="true"></i>
+            <sub>
+              <small>Ingreso</small>
+            </sub> =
+            <strong>{{deltasInfo?.ingresoPorcentaje}}%</strong>
+          </div>
+        </ion-col>
+        <ion-col col-sm-6 text-center class="text-danger">
+          <div class="deltas">
+            <i class="fa fa-play" aria-hidden="true"></i>
+            <sub>
+              <small>TDPA</small>
+            </sub> =
+            <strong>{{deltasInfo?.aforoPorcentaje}}%</strong>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+
+  <ion-slides>
+
+    <ion-slide *ngIf="reporteConcentrado && reporteConcentrado.length > 0">
+
+
+      <ion-card class="resume-table">
+        <ion-card-header class="text-blue">
+          {{reporteConcentrado[0].descripcion | titlecase}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+
+
+
+          <ion-grid>
+            <ion-row class="ck-title">
+              <ion-col text-right>
+                <strong>TDPM</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[0].anioAnterior}}</small>
+                <p no-margin>
+                  {{reporteConcentrado[0]?.aforoAnterior | number: '1.2'}}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[0].anioActual}}</small>
+                <p no-margin>
+                  {{reporteConcentrado[0]?.aforoActual | number: '1.2'}}
+                </p>
+
+              <span [class.text-success]="reporteConcentrado[0]?.aforoPorcentaje > 0" 
+                    [class.text-danger]="reporteConcentrado[0]?.aforoPorcentaje < 0" 
+                    [class.text-secondary]="reporteConcentrado[0]?.aforoPorcentaje == 0">
+                    {{reporteConcentrado[0]?.aforoPorcentaje}}%
+                <i class="fa" 
+                  [class.fa-arrow-circle-up]="reporteConcentrado[0]?.aforoPorcentaje > 0" 
+                  [class.fa-arrow-circle-down]="reporteConcentrado[0]?.aforoPorcentaje < 0" 
+                  [class.fa-arrow-circle-right]="reporteConcentrado[0]?.aforoPorcentaje == 0" aria-hidden="true"></i>
+              </span> 
+                <!-- <span class="text-danger">
+                  {{reporteConcentrado[0]?.aforoPorcentaje}}%
+                  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </span> -->
+              </ion-col>
+            </ion-row>
+
+            <ion-row  class="ck-title">
+              <ion-col text-right>
+                <strong>INGRESO</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[0].anioAnterior}}</small>
+                <p>
+                  ${{reporteConcentrado[0].ingresoAnterior | number: '1.2'}}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[0].anioActual}}</small>
+                <p>
+                  ${{reporteConcentrado[0].ingresoActual | number: '1.2'}}
+                </p>
+              <span [class.text-success]="reporteConcentrado[0]?.ingresoPorcentaje > 0" 
+                    [class.text-danger]="reporteConcentrado[0]?.ingresoPorcentaje < 0" 
+                    [class.text-secondary]="reporteConcentrado[0]?.ingresoPorcentaje == 0">
+                    {{reporteConcentrado[0]?.ingresoPorcentaje}}%
+                <i class="fa" 
+                  [class.fa-arrow-circle-up]="reporteConcentrado[0]?.ingresoPorcentaje > 0" 
+                  [class.fa-arrow-circle-down]="reporteConcentrado[0]?.ingresoPorcentaje < 0" 
+                  [class.fa-arrow-circle-right]="reporteConcentrado[0]?.ingresoPorcentaje == 0" aria-hidden="true"></i>
+              </span> 
+                <!-- <span class="text-green">
+                  {{reporteConcentrado[0].ingresoPorcentaje}}%
+                  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </span> -->
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <!-- <ion-slide *ngIf="reporteConcentrado && reporteConcentrado.length > 1">
+      <ion-card class="resume-table">
+        <ion-card-header class="text-blue">
+          {{reporteConcentrado[1].descripcion | titlecase}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <div class="heading">
+                  <small>
+                    <strong>
+                      <br>AFORO</strong>
+                  </small>
+                </div>
+              </ion-col>
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioAnterior}}</small>
+                <p no-margin>
+                  {{reporteConcentrado[1].aforoAnterior | number: '1.2'}}
+                </p>
+              </ion-col>
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioActual}}</small>
+                <p no-margin>
+                  {{reporteConcentrado[1].aforoActual | number: '1.2'}}
+                </p>
+                <span class="text-danger">
+                  {{reporteConcentrado[1].aforoPorcentaje}}%
+                  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </span>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <div class="heading">
+                  <small>
+                    <strong>
+                      <br>INGRESO</strong>
+                  </small>
+                </div>
+              </ion-col>
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioAnterior}}</small>
+                <p>
+                  ${{reporteConcentrado[1].ingresoAnterior | number: '1.2'}}
+                </p>
+              </ion-col>
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioActual}}</small>
+                <p>
+                  ${{reporteConcentrado[1].ingresoActual | number: '1.2'}}
+                </p>
+                <span class="text-green">
+                  {{reporteConcentrado[1].ingresoPorcentaje}}%
+                  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </span>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide> -->
+
+    <ion-slide *ngIf="reporteConcentrado && reporteConcentrado.length > 0">
+
+
+      <ion-card class="resume-table">
+        <ion-card-header class="text-blue">
+          {{reporteConcentrado[1].descripcion | titlecase}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+          <ion-grid>
+            <ion-row class="ck-title">
+              <ion-col text-right>
+                <strong>TDPM</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioAnterior}}</small>
+                <p no-margin>
+                  {{reporteConcentrado[1].aforoAnterior | number: '1.2'}}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioActual}}</small>
+                <p no-margin>
+                  {{reporteConcentrado[1].aforoActual | number: '1.2'}}
+                </p>
+                <span [class.text-success]="reporteConcentrado[1]?.aforoPorcentaje > 0" 
+                    [class.text-danger]="reporteConcentrado[1]?.aforoPorcentaje < 0" 
+                    [class.text-secondary]="reporteConcentrado[1]?.aforoPorcentaje == 0">
+                    {{reporteConcentrado[1]?.aforoPorcentaje}}%
+                <i class="fa" 
+                  [class.fa-arrow-circle-up]="reporteConcentrado[1]?.aforoPorcentaje > 0" 
+                  [class.fa-arrow-circle-down]="reporteConcentrado[1]?.aforoPorcentaje < 0" 
+                  [class.fa-arrow-circle-right]="reporteConcentrado[1]?.aforoPorcentaje == 0" aria-hidden="true"></i>
+              </span> 
+                <!-- <span class="text-danger">
+                  {{reporteConcentrado[1]?.aforoPorcentaje}}%
+                  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </span> -->
+              </ion-col>
+            </ion-row>
+
+            <ion-row  class="ck-title">
+              <ion-col text-right>
+                <strong>INGRESO</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioAnterior}}</small>
+                <p>
+                  ${{reporteConcentrado[1].ingresoAnterior | number: '1.2'}}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{reporteConcentrado[1].anioActual}}</small>
+                <p>
+                  ${{reporteConcentrado[1].ingresoActual | number: '1.2'}}
+                </p>
+                <span [class.text-success]="reporteConcentrado[1]?.ingresoPorcentaje > 0" 
+                    [class.text-danger]="reporteConcentrado[1]?.ingresoPorcentaje < 0" 
+                    [class.text-secondary]="reporteConcentrado[1]?.ingresoPorcentaje == 0">
+                    {{reporteConcentrado[1]?.ingresoPorcentaje}}%
+                <i class="fa" 
+                  [class.fa-arrow-circle-up]="reporteConcentrado[1]?.ingresoPorcentaje > 0" 
+                  [class.fa-arrow-circle-down]="reporteConcentrado[1]?.ingresoPorcentaje < 0" 
+                  [class.fa-arrow-circle-right]="reporteConcentrado[1]?.ingresoPorcentaje == 0" aria-hidden="true"></i>
+              </span> 
+                <!-- <span class="text-green">
+                  {{reporteConcentrado[1]?.ingresoPorcentaje}}%
+                  <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+                </span> -->
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
+
+
+  <ion-slides pager>
+
+    <ion-slide>
+      <ion-card class="pie-chart">
+        <ion-card-header class="text-blue">
+          TDPA - {{chartTitle}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+          <div id="tdpaChart" [style.width.%]="100" [style.height.px]="250"></div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="pie-chart">
+        <ion-card-header class="text-blue">
+          Ingresos - {{chartTitle}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+          <div id="ingresoChart" [style.width.%]="100" [style.height.px]="250"></div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+    <ion-slide>
+      <ion-card class="pie-chart">
+        <ion-card-header class="text-blue">
+          Efectivo/Telepeaje - {{chartTitle}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+          <div id="efectivoTelepeajeChart" [style.width.%]="100" [style.height.px]="250"></div>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+
+  </ion-slides>
+
+</ion-content>

@@ -1,0 +1,36 @@
+page-dashboard {
+  .content {
+    background-color: #E7EEF5;
+    background-image: url(../assets/imgs/h1.png);
+    background-repeat: repeat-x;
+    background-position-y: -50px;
+    .grid {
+      padding-top: 50px;
+      .col {
+        padding: 10px;
+      }
+      .card {
+        margin: 0 !important;
+        box-shadow: none;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 5px 12px 0 rgba(45,124,177, 0.50);
+        border-radius: 4px;
+        .card-content {
+          padding: 40px 16px !important;
+          ion-icon {            
+            font-size: 3.5em;
+            color: #102D49;
+          }
+          h3 {
+            margin-top: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.toolbar-background {
+  border-color: transparent !important;
+}

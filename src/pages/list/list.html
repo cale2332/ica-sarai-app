@@ -1,0 +1,39 @@
+<ion-content>
+
+  <ion-row>
+    <ion-col text-center margen-top padding-top>
+      <img src="./assets/imgs/logo.png" width="150" height="150">
+    </ion-col>
+  </ion-row>
+
+  <div style="margin-top:20px; border:1px solid transparent;">
+    <form (ngSubmit)="login()" autocomplete="off">
+      <ion-row>
+        <ion-col>
+          <ion-list padding inset style="border-radius:16px; background-color:#fff">
+            <ion-item>
+              <ion-input placeholder="Email" name="username" id="loginField" type="text" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input placeholder="Password" name="password" id="passwordField" type="password" required></ion-input>
+            </ion-item>
+            <ion-item text-center>
+                <button ion-button round type="submit" >LOGIN</button>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+       
+      <ion-row>
+        <ion-col col-12 text-center padding-top>
+          <small margin-top>Copyright © 2018. All rights reserved</small>
+          <p no-margin>
+            <small class="text-primary">
+              <strong class="text-primary-o5">powered by: </strong> ICA </small>
+          </p>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+</ion-content>

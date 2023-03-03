@@ -1,0 +1,16 @@
+<ion-header style="background-color:blue">
+  <ion-navbar primary>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>SARAI</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="home">
+    <button ion-button primary full (click)="goDashboard()">Go to Dashboard</button>
+    <button ion-button primary full [navPush]="pushLoginPage">iniciar session</button>
+  </div>
+
+</ion-content>

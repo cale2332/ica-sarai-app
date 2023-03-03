@@ -1,0 +1,95 @@
+<!--
+  Generated template for the AforoAnormalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SARAI</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-st">
+  <h4 padding-left class="search-heading">{{proyecto}}</h4>
+  <h5 no-margin padding-left class="heading ellipsis text-primary">
+    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+    Aforo Anormal
+  </h5>
+  <p padding-left class="periodo">
+    <strong>Período: </strong>
+    {{ periodo?.fechaInicio | date: 'dd/MM/yyyy'}} - {{ periodo?.fechaFin | date: 'dd/MM/yyyy'}}
+  </p>
+
+  <p class="text-warning mt-100" text-center *ngIf="!aforoAnormal">
+    <ion-icon ios="ios-alert" md="md-alert" class="text-3r"></ion-icon>
+    <br> no se pudo encontrar datos
+  </p>
+
+  <ion-card>
+    <ion-card-header></ion-card-header>
+
+    <ion-grid>
+      <ion-row class="totales-afan">
+        <ion-col text-right>
+          <h5>TOTAL CRUCES</h5>
+          <h1>{{ (aforoAnormal && aforoAnormal?.totalCruces ?  aforoAnormal?.totalCruces : 0 ) | number: '1.0-0' }}</h1>
+        </ion-col>
+      </ion-row>
+      <ion-row class="totales-afan">
+        <ion-col text-right>
+          <h5>TOTAL DE INSERCIONES</h5>
+          <h1>{{(aforoAnormal && aforoAnormal?.des && aforoAnormal?.des.inserciones ? aforoAnormal?.des.inserciones : 0)  | number: '1.0-0' }}</h1>
+          <!-- <p class="text-danger">+ {{aforoAnormal?.totalAnormalesPorcentaje | percent:'1.2'}}</p> -->
+        </ion-col>
+      </ion-row>
+      <ion-row class="totales-afan">
+        <ion-col text-right>
+          <h5>TOTAL DE VIOLACIONES</h5>
+          <h1>{{ (aforoAnormal && aforoAnormal?.des && aforoAnormal?.des.violaciones ? aforoAnormal?.des.violaciones : 0) | number: '1.0-0' }}</h1>
+          <!-- <p class="text-danger">+ {{aforoAnormal?.totalAnormalesPorcentaje | percent:'1.2'}}</p> -->
+        </ion-col>
+      </ion-row>
+      <ion-row class="totales-afan">
+        <ion-col text-right>
+          <h5>TOTAL DE DISCREPANCIA</h5>
+          <h1>{{ (aforoAnormal && aforoAnormal?.des && aforoAnormal?.des.discrepancia ? aforoAnormal?.des.discrepancia : 0)  | number: '1.0-0' }}</h1>
+          <!-- <p class="text-danger">+ {{aforoAnormal?.totalAnormalesPorcentaje | percent:'1.2'}}</p> -->
+        </ion-col>
+      </ion-row>
+      <ion-row class="totales-afan">
+        <ion-col text-right>
+          <h5>TOTAL DE ANORMALES</h5>
+          <h1>{{ (aforoAnormal && aforoAnormal?.des && aforoAnormal?.des.totalAnormales ? aforoAnormal?.des.totalAnormales : 0)  | number: '1.0-0' }}</h1>
+          <!-- <p class="text-danger">+ {{aforoAnormal?.totalAnormalesPorcentaje | percent:'1.2'}}</p> -->
+        </ion-col>
+      </ion-row>
+      <ion-row class="cgraph">
+        <ion-col col-12>
+          <div id="aforoAnormalChart" [style.width.%]="100" [style.height.px]="150"></div>
+        </ion-col>
+      </ion-row>
+
+<!--       <ion-row class="bordered">
+
+        <ion-col col-6 text-right>
+          <h5>TOTAL CLASES</h5>
+          <h1>{{aforoAnormal?.totalClases | number}}</h1>
+          <p class="text-danger">+ {{aforoAnormal?.totalClasesPorcentaje | percent:'1.2'}}</p>
+        </ion-col>
+        <ion-col col-6>
+          <h5>TOTAL TARIFA</h5>
+          <h1>{{aforoAnormal?.totalTarifa | number}}</h1>
+          <p class="text-danger">{{aforoAnormal?.totalTarifaPorcentaje | percent:'1.2'}}</p>
+        </ion-col>
+      </ion-row> -->
+
+    </ion-grid>
+
+  </ion-card>
+
+</ion-content>

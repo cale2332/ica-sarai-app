@@ -1,0 +1,68 @@
+<!--
+  Generated template for the KpiReportPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SARAI</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-st">
+  <h4 padding-left class="search-heading"> REPORTE A&I</h4>
+
+  <ion-card>
+    <form [formGroup]="kpiReportForm" (ngSubmit)="onSubmit(kpiReportForm.value)">
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-12 col-sm-6 class="">
+            <ion-item>
+              <ion-label>Proyecto</ion-label>
+              <ion-select formControlName="proyectoId" required>
+                <ion-option *ngFor="let proyecto of catalogs?.proyectos?.value" [value]="proyecto.key">{{proyecto.value}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-6 class="">
+            <ion-item>
+              <ion-label> Año Inicio</ion-label>
+              <ion-select formControlName="anioInicio" required>
+                <ion-option *ngFor="let year of years" [value]="year">{{year}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-6 class="">
+            <ion-item>
+              <ion-label> Año Fin</ion-label>
+              <ion-select formControlName="anioFin" required>
+                <ion-option *ngFor="let year of years" value="{{year}}">{{year}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-6 class="">
+            <ion-item>
+              <ion-label>Mes</ion-label>
+              <ion-select formControlName="mes" required>
+                <ion-option *ngFor="let month of months" value="{{month}}">{{month}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12>
+            <div class="btn-action-box">
+              <button ion-button round primary full type="submit" [disabled]="!kpiReportForm.valid">
+                <i class="fa fa-search" margin-right aria-hidden="true"></i>
+                Iniciar Búsqueda
+              </button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-card>
+
+</ion-content>

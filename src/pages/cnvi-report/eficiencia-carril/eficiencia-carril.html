@@ -1,0 +1,69 @@
+<!--
+  Generated template for the EficienciaCarrilPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SARAI</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="content-st">
+  <h4 padding-left class="search-heading">{{proyecto}}</h4>
+  <h5 no-margin padding-left class="heading ellipsis text-primary">
+    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+    Carriles Más y Menos Eficientes
+  </h5>
+  <p padding-left class="periodo">
+    <strong>Período: </strong>
+    {{ periodo?.fechaInicio | date: 'dd/MM/yyyy'}} - {{ periodo?.fechaFin | date: 'dd/MM/yyyy'}}
+  </p>
+
+  <p class="text-warning mt-100" text-center *ngIf="listaEficienciaSistema.length==0">
+    <ion-icon ios="ios-alert" md="md-alert" class="text-3r"></ion-icon>
+    <br> no se pudo encontrar datos
+  </p>
+
+
+  <ion-card *ngFor="let evento of listaEficienciaSistema">
+    <ion-card-content no-padding>
+      <ion-grid>
+        <ion-row class="bg-light_e">
+          <ion-col col-6>
+            <h2>
+              <i class="fa fa-cubes"></i>
+              <span>Carril ID: </span>
+              <strong>{{evento.carrilId}}</strong>
+            </h2>
+          </ion-col>
+          <ion-col col-6 text-right>
+            <h2 class="text-dark-blue text-2r">
+              <strong>{{evento.totalEficienciaPorcentaje | percent: '1.2'}}</strong>
+            </h2>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="bordered">
+          <ion-col col-6 text-right>
+            <h2>
+              {{evento.total | number}}
+            </h2>
+            <small class="text-primary-o5">Total Carriles</small>
+          </ion-col>
+          <ion-col col-6>
+            <h2 class="text-danger">
+              {{evento.carril | number}}
+            </h2>
+            <small class="text-primary-o5"> Detectado</small>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

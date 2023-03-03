@@ -1,0 +1,76 @@
+page-eficiencia-cobrador {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .content {
+    background-position-y: -15px !important;
+  }
+  .ec-list {
+    .item {
+      text-transform: capitalize;
+    }
+  }
+  .ec-search {
+    background-color: transparent !important;
+    border-bottom: 1px solid transparent !important;
+    &.item-md {
+      padding-left: 7px !important;
+    }
+    .item-inner {
+      border-bottom-color: transparent !important;
+      padding: 0;
+      .label-md {
+        margin: 0;
+      }
+    }
+  }
+  .ec-card {
+    background-color: #fff;
+    h2 {
+      font-size: 1.8rem;
+    }
+    .card-header {
+      border-bottom: 1px solid #F4F5F7;
+      padding: 16px 16px 10px;
+      h2 {
+        color: #234766;
+        i {
+          margin-right: 5px;
+          font-size: 1.6rem;
+        }
+      }
+    }
+    .card-content {
+      padding: 0;
+    }
+    .grid {
+      &.bordered {
+        padding: 0;
+        .col {
+          border-left: 1px solid #efefef;
+          text-align: right;
+          padding: 10px 15px;
+          h2 {
+            color: rgba(35, 71, 102, .9);
+            margin-bottom: 0;
+          }
+          small {
+            color: rgba(35, 71, 102, .5);
+          }
+          &:first-child {
+            border-left-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ldBar-label {
+  font-size: 2.1em;
+  &:after {
+    content: "%";
+    font-size: .5em;
+  }
+}

@@ -1,0 +1,64 @@
+<!--
+  Generated template for the CnviReportSearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Reporte CNVI</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-st">
+  <h4 padding-left class="search-heading"> REPORTE CNVI </h4>
+ 
+  <ion-card>
+    <form [formGroup]="cnviReportForm" (ngSubmit)="onSubmit(cnviReportForm.value)">
+      <ion-grid no-padding>
+        <ion-row>
+          <ion-col col-12 col-sm-12>
+            <ion-item class="no-divisor">
+              <ion-label>Listado de Reporte</ion-label>
+              <ion-select formControlName="reporteId" required okText="Continuar" cancelText="Cancelar"> 
+                <ion-option *ngFor="let proyecto of catalogs?.reports" [value]="proyecto.key">{{proyecto.value}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-12>
+            <ion-item>
+              <ion-label>Proyecto</ion-label>
+              <ion-select formControlName="proyectoId" required okText="Continuar" cancelText="Cancelar">
+                <ion-option *ngFor="let proyecto of catalogs?.proyectos?.value" [value]="proyecto.key">{{proyecto.value}}</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-6>
+            <ion-item>
+              <ion-label>Fecha Inicio</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" formControlName="fechaInicio" [min]="startDateMin" [max]="startDateMax" required></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12 col-sm-6>
+            <ion-item>
+              <ion-label>Fecha Fin</ion-label>
+              <ion-datetime displayFormat="DD/MM/YYYY" formControlName="fechaFin" [min]="endDateMin" [max]="endDateMax" required></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col col-12>
+            <div class="btn-action-box">
+              <button ion-button round primary full type="submit" [disabled]="!cnviReportForm.valid">
+                <i class="fa fa-search" margin-right aria-hidden="true"></i>
+                Iniciar Búsqueda
+              </button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </form>
+  </ion-card>
+
+</ion-content>

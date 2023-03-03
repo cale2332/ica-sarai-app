@@ -1,0 +1,113 @@
+<!--
+  Generated template for the ResumePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Resumen 12 meses</ion-title>
+    <ion-buttons right padding-right>
+      <button (click)="goToDashboard()" class="btn-menu">
+        <ion-icon ios="ios-apps" md="md-apps"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-st">
+
+  <ion-slides *ngIf="reportList && reportList.length > 0">
+
+
+    <ion-slide *ngFor="let item of reportList" style="align-items: flex-start !important;">
+      <h4 padding-left text-left class="search-heading">{{item?.key | uppercase}}</h4>
+
+      <ion-card *ngIf="item && item.value" class="resume-table">
+        <ion-card-header class="text-blue">
+          {{item?.value?.descripcion | titlecase}}
+        </ion-card-header>
+        <ion-card-content no-padding class="bg-white">
+          <ion-grid>
+
+            <ion-row class="ck-title">
+              <ion-col text-right>
+                <strong>TDPA</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{item?.value?.anioAnterior}}</small>
+                <p no-margin>
+                  {{item?.value?.aforoAnterior | number: '1.0-0'}}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{item?.value?.anioActual}}</small>
+                <p no-margin>
+                  {{item?.value?.aforoActual | number: '1.0-0'}}
+                </p>
+                <span [class.text-success]="item?.value?.aforoPorcentaje > 0" 
+                      [class.text-danger]="item?.value?.aforoPorcentaje < 0" 
+                      [class.text-secondary]="item?.value?.aforoPorcentaje==0">
+                  {{item?.value?.aforoPorcentaje}}%
+                  <i class="fa" 
+                    [class.fa-arrow-circle-up]="item?.value?.aforoPorcentaje > 0" 
+                    [class.fa-arrow-circle-down]="item?.value?.aforoPorcentaje < 0" 
+                    [class.fa-arrow-circle-right]="item?.value?.aforoPorcentaje == 0" aria-hidden="true"></i>
+                </span>             
+              </ion-col>
+            </ion-row>
+            <ion-row class="ck-title">
+              <ion-col text-right>
+                <strong>INGRESO</strong>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{item?.value?.anioAnterior}}</small>
+                <p>
+                  ${{item?.value?.ingresoAnterior | number: '1.0-0'}}
+                </p>
+              </ion-col>
+            </ion-row>
+            <ion-row class="totales-afan">
+              <ion-col text-right>
+                <small>{{item?.value?.anioActual}}</small>
+                <p>
+                  ${{item?.value?.ingresoActual | number: '1.0-0'}}
+                </p>
+                <span [class.text-success]="item?.value?.ingresoPorcentaje > 0" 
+                    [class.text-danger]="item?.value?.ingresoPorcentaje < 0" 
+                    [class.text-secondary]="item?.value?.ingresoPorcentaje==0">
+                {{item?.value?.ingresoPorcentaje}}%
+                <i class="fa" 
+                  [class.fa-arrow-circle-up]="item?.value?.ingresoPorcentaje > 0" 
+                  [class.fa-arrow-circle-down]="item?.value?.ingresoPorcentaje < 0" 
+                  [class.fa-arrow-circle-right]="item?.value?.ingresoPorcentaje == 0" aria-hidden="true"></i>
+              </span>
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card *ngIf="!item || !item.value" class="resume-table">
+        <ion-card-content no-padding class="bg-white">
+          <p class="text-warning">No se encontró información para:
+            <strong>{{item?.key}}</strong>
+          </p>
+        </ion-card-content>
+      </ion-card>
+
+    </ion-slide>
+
+  </ion-slides>
+<small padding-top *ngIf="reportList && reportList.length > 0"> *Los ingresos incluyen IVA</small>
+</ion-content>

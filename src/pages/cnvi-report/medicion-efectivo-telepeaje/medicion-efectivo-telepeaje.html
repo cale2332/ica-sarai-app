@@ -1,0 +1,70 @@
+<!--
+  Generated template for the MedicionEfectivoTelepeajePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SARAI</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content class="content-st">
+  <h4 padding-left class="search-heading">{{proyecto}}</h4>
+  <h5 no-margin padding-left class="heading ellipsis text-primary">
+    <i class="fa fa-pie-chart" aria-hidden="true"></i>
+    Medición Pago Efectivo/Telepeaje
+  </h5>
+  <p padding-left class="periodo">
+    <strong>Período: </strong>
+    {{ periodo?.fechaInicio | date: 'dd/MM/yyyy'}} - {{ periodo?.fechaFin | date: 'dd/MM/yyyy'}}
+  </p>
+
+  <p class="text-warning mt-100" text-center *ngIf="pagoEfectivoTelepeaje.length==0">
+    <ion-icon ios="ios-alert" md="md-alert" class="text-3r"></ion-icon>
+    <br> no se pudo encontrar datos
+  </p>
+
+  <ion-card *ngFor="let ingreso of pagoEfectivoTelepeaje">
+    <ion-card-content no-padding>
+      <ion-grid class="bordered">
+        <ion-row>
+          <ion-col text-right>
+            <h5>INGRESO</h5>
+            <h1 class="text-primary">{{ingreso?.ingresoTelepeaje | number: '1.0-0' }}</h1>
+          </ion-col>
+        </ion-row>
+        <ion-row class="totales-afan">
+          <ion-col text-right>
+            <h5>EFECTIVO</h5>
+            <h2 class="text-primary">{{ingreso?.ingreso | number: '1.0-0' }}</h2>
+            <p class="text-success">{{ingreso?.ingresoPorcentaje | percent:'1.2'}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row class="totales-afan">
+          <ion-col text-right>
+            <h5>TELEPEAJE</h5>
+            <h2 class="text-primary">{{ingreso?.telepeaje | number: '1.0-0' }}</h2>
+            <p class="text-success">{{ingreso?.telepeajePorcentaje | percent:'1.2'}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col class="bt-1" padding-right text-right>
+            SEMANA:
+            <strong>{{ingreso?.semana}}</strong>
+            <p>año:
+              <strong>{{ingreso?.anio}}</strong>
+            </p>
+          </ion-col>
+        </ion-row>
+
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+
+</ion-content>

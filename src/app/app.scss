@@ -1,0 +1,232 @@
+// http://ionicframework.com/docs/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+// @import url('https://fonts.googleapis.com/css?family=Rock+Salt');
+.bar-button-default-md,
+.bar-button-clear-md-default,
+.bar-button-md-default {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.bar-button-md[icon-only] {
+  padding: 10px;
+}
+
+// .scroll-content {
+//   padding: 0 !important;
+// }
+.loading-md .loading-wrapper {
+  background: #F4F5F7 !important;
+  color: color($colors, primary) !important;
+  text-transform: uppercase;
+  font-size: .8em;
+}
+
+.text-green,
+.text-success {
+  color: color($colors, secondary) !important;
+}
+
+.text-danger {
+  color: color($colors, danger) !important;
+}
+
+.text-blue {
+  color: rgb(50, 126, 177) !important;
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+.text-primary {
+  color: $primary !important;
+}
+
+.text-primary-o8 {
+  color: $primary_o8 !important;
+}
+
+.text-primary-o5 {
+  color: $primary_o5 !important;
+}
+
+.text-warning {
+  color: color($colors, warning) !important;
+}
+
+.text-dark-blue {
+  color: #006699 !important;
+}
+
+.bg-white {
+  background-color: #fff !important;
+}
+
+.text-2r {
+  font-size: 2.0rem !important;
+}
+
+.text-3r {
+  font-size: 3.0rem !important;
+}
+
+.bg-light {
+  background-color: #F4F5F7 !important;
+}
+
+.bg-light_e {
+  background-color: $light_e !important;
+}
+.bg-rosas {
+  background-color: #F9F1F5 !important;
+}
+
+
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mt-100 {
+  margin-top: 100px;
+}
+
+.cnvi-card {
+  background-color: #fff;
+  .jumbotr {
+    border: 1px solid #efefef;
+    background-color: #F4F5F7;
+    padding: 10px 16px;
+    h1 {
+      font-size: 3.0rem;
+    }
+  }
+}
+
+.bb-1 {
+  border-bottom: 1px solid #efefef;
+}
+
+.br-1 {
+  border-right: 1px solid #efefef;
+}
+
+.bt-1 {
+  border-top: 1px solid #efefef;
+}
+
+.content-st {
+  h3,
+  h4.search-heading {
+    color: #fdfdfe;
+    margin-top: 20px;
+  }
+  background-color: #E7EEF5;
+  background-image: url(../assets/imgs/h1.png);
+  background-repeat: repeat-x;
+  background-position-y: -50px;
+  .periodo {
+    color: #fff;
+    padding-left: 37px !important;
+    margin-top: 5px;
+  }
+  .card {
+    box-shadow: none;
+    background-color: #fff;
+    box-shadow: 0 5px 12px 0 rgba(45, 124, 177, 0.40);
+    margin-top: 20px;
+    .card-header {
+      p {
+        padding-left: 20px;
+      }
+    }
+    .heading {
+      font-size: 1.6rem;
+    }
+    .item {
+      background-color: transparent;
+      padding-right: 10px;
+      .item-inner {
+        border-bottom: 1px solid #eee;
+        &:last-child {
+          border-bottom-color: transparent;
+        }
+      }
+    }
+    .btn-action-box {
+      padding: 16px;
+      .button {
+        padding: 22px 16px;
+      }
+    }
+  }
+  .grid {
+    .row {
+      h1 {
+        font-size: 3.0rem;
+      }
+      &.totales-afan {
+        background-color: #F1F5F9;
+        padding: 10px 20px;
+        border-top: 1px solid #fff;
+        h5 {
+          color: $blue;
+        }
+        h1 {
+          color: #006699;
+        }
+        p {
+          font-size: 1.9rem;
+        }
+      }
+      &.jumbotr {
+        border: 1px solid $triple_e;
+        background-color: $light_e;
+        padding: 10px 16px;
+      }
+      &.cgraph {
+        padding: 25px 16px;
+      }
+      &.bordered {
+        padding: 0;
+        .col {
+          border-left: 1px solid #efefef;
+          border-top: 1px solid #efefef;
+          padding: 15px 30px;
+          &:first-child {
+            border-left-color: transparent;
+          }
+          p {
+            font-size: 1.8rem;
+          }
+          h5 {
+            color: #006699
+          }
+        }
+      }
+    }
+  }
+}
+
+.amcharts-main-div {
+  .amcharts-chart-div {
+    background: #fff;
+    a {
+      display: none !important;
+    }
+  }
+}
