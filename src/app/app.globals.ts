@@ -6,13 +6,13 @@ export class AppGlobals {
 
     static getBaseUrl() {
 
-        let url = 'http://sarai.icai.mx:81/'
+        let url = 'http://localhost:64209/'
         switch (this.location) {
             case 'ica_desa':
-                url = 'http://sarai.icai.mx:81/';
+                url = 'http://localhost:64209/';
                 break;
             case 'ica_local':
-                url = 'http://sarai.icai.mx:81/';
+                url = 'http://localhost:64209/';
                 break;
         }
         return url

@@ -21,7 +21,7 @@ export class LoginResponse {
 export class AuthServiceProvider {
   private tokenUrl: string;
   constructor(public httpClient: HttpClient) {
-    this.tokenUrl =  AppGlobals.getBaseUrl() + 'sarai/token';
+    this.tokenUrl =  AppGlobals.getBaseUrl() + 'sarai/Token';
   }
 
   login(data) {
